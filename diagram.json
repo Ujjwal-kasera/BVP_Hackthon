@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "author": "Ujjwal",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "chip-soil_sensor", "id": "chip1", "top": 78.43, "left": 142.73, "attrs": {} },
+    {
+      "type": "wokwi-arduino-uno",
+      "id": "uno",
+      "top": 77.71,
+      "left": -181.87,
+      "rotate": 90,
+      "attrs": {}
+    },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": 12.7, "left": -347.02, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot2", "top": 144.65, "left": -347.48, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot3", "top": 264.57, "left": -345.49, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": 143.52,
+      "left": 140.29,
+      "attrs": { "temperature": "14.5", "humidity": "76" }
+    },
+    {
+      "type": "wokwi-lcd2004",
+      "id": "lcd2",
+      "top": -174.41,
+      "left": -146.07,
+      "attrs": { "pins": "i2c" }
+    }
+  ],
+  "connections": [
+    [ "pot3:GND", "uno:GND.3", "black", [ "v54.61", "h144.53", "v-161.95" ] ],
+    [ "pot1:GND", "uno:GND.3", "black", [ "v45.68", "h146.67", "v119.62" ] ],
+    [ "pot3:VCC", "uno:5V", "red", [ "v46.03", "h117.05", "v-181.51" ] ],
+    [ "pot1:VCC", "uno:5V", "red", [ "v34.63", "h86.25", "v0", "h32.34", "v91.32" ] ],
+    [ "chip1:VCC", "uno:3.3V", "red", [ "h-80.47", "v-63.34", "h-218.05", "v152.76" ] ],
+    [ "chip1:GND", "uno:GND.1", "black", [ "h-74.4", "v53.95" ] ],
+    [ "dht1:GND", "uno:GND.2", "black", [ "v75.41", "h-340.6", "v-141.63" ] ],
+    [ "dht1:VCC", "uno:5V", "red", [ "v68.43", "h-302.91", "v-142.26" ] ],
+    [ "dht1:SDA", "uno:2", "green", [ "v0" ] ],
+    [ "chip1:A0", "uno:A2", "orange", [ "h-66.09", "v-79.68", "h-275.53", "v243.06" ] ],
+    [ "pot2:GND", "uno:GND.2", "black", [ "v44.19", "h162.21", "v-40.38" ] ],
+    [ "pot2:VCC", "uno:VIN", "red", [ "v0" ] ],
+    [ "lcd2:SCL", "uno:A5", "green", [ "h-61.28", "v417.26" ] ],
+    [ "lcd2:SDA", "uno:A4", "green", [ "h-70.74", "v25.35" ] ],
+    [ "lcd2:VCC", "uno:5V", "red", [ "h-19.7", "v331.81" ] ],
+    [ "lcd2:GND", "uno:GND.3", "black", [ "h-28.98", "v362.65" ] ],
+    [ "pot1:SIG", "uno:A0", "green", [ "v26.59", "h83.45", "v135.43" ] ],
+    [ "pot2:SIG", "uno:A1", "green", [ "v33.47", "h72.63", "v19.19" ] ],
+    [ "pot3:SIG", "uno:A3", "green", [ "v38.82", "h77.41", "v-95.93" ] ]
+  ],
+  "dependencies": {}
+}
